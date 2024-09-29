@@ -1,24 +1,17 @@
-from logging import exception
-
-
-from Constants.Note import Note
-
-from Constants.MidiNumber import MidiNumber
+from Constants.SharedValueConstants import *
 
 class MidiHelper:
+    @staticmethod
+    def to_note(midi):
+        if MidiHelper.is_invalid_midi_number(midi):
+            raise ValueError("invalid midi number")
 
-    NOTE_LIST = [Note.C, Note.CSharp, Note.D, Note.DSharp, Note.E, Note.F, Note.FSharp, Note.G, Note.GSharp, Note.A, Note.ASharp, Note.B]
+        note_index = midi % 12
+        octave = (midi // 12) - 1  # Calculate octave (MIDI note 0 is C-1)
+        note = semitones[note_index]  # Find the note name (C, C#, D, etc.)
+
+        return f"{note}{octave}"
 
     @staticmethod
-    def convert_to_note(midi_number):
-        if MidiHelper.is_invalid_midi_number(midi_number):
-            return exception("invalid midi number")
-
-        octave = (midi_number // 12) - 1  # Calculate octave (MIDI note 0 is C-1)
-        note = MidiHelper.NOTE_LIST[midi_number % 12]  # Find the note name (C, C#, D, etc.)
-
-        return f"{note.Name}{octave}"
-
-    @staticmethod
-    def is_invalid_midi_number(midi_number):
-        return midi_number is None or midi_number < MidiNumber.Min or midi_number > MidiNumber.Max
+    def is_invalid_midi_number(midi):
+        return midi is None or midi < midi_min or midi > midi_max

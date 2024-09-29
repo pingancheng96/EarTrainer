@@ -1,9 +1,9 @@
 import pyaudio
 import numpy as np
 
-class Stream:
+class Streamer:
 
-    def __init__(self, stream_format=pyaudio.paFloat32, channels=1, is_input=True, frames_per_buffer=1024, sample_rate=12800):
+    def __init__(self, stream_format=pyaudio.paFloat32, channels=1, is_input=True, frames_per_buffer=1024, sample_rate=44100):
         self.stream = None
         self.format = stream_format
         self.channels = channels
