@@ -8,7 +8,7 @@ from Infrastructure.Streamer import Streamer
 from Infrastructure.MidiPlayer import MidiPlayer
 from Helpers.MidiHelper import MidiHelper
 
-class NoteImitation:
+class NoteRepeat:
 
     def __init__(self):
         self.midi_player = MidiPlayer()
