@@ -3,8 +3,8 @@
 A toolkit for music ear training.
 
 Available training tools:
-1. Note Repeat: Hear a single note, and then sing the note.
-2. Notes Compare: Hear two motes, and then tell which note has a higher pitch.
+1. Note hear and sing: Hear a single note, and then sing the note.
+2. Melody trend: Hear a melody, and then write down the pitch trend.
 
 More tools under development
 

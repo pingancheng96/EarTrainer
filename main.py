@@ -1,20 +1,21 @@
-from Components.NoteRepeat import NoteRepeat
-from Components.NotesCompare import NotesCompare
-from Components.PitchDetector import PitchDetector
+from Practice.NoteHearAndSing import NoteHearAndSing
+from Practice.MelodyTrend import MelodyTrend
+from Practice.FreeSinging import FreeSinging
 
-print("Choose components:")
-print("1) Pitch Detector")
-print("2) Note Repeat")
-print("3) Note Compare")
+print("Choose practice:")
+print("1) Free Singing")
+print("2) Note Hear and Sing")
+print("3) Melody Trend")
 
 item = input()
 
 if item == '1':
-    pitch_detector = PitchDetector()
-    pitch_detector.start()
+    free_singing = FreeSinging()
+    free_singing.start()
 elif item == '2':
-    note_repeat = NoteRepeat()
-    note_repeat.start()
+    note_hear_and_sing = NoteHearAndSing()
+    note_hear_and_sing.start()
 elif item == '3':
-    notes_compare = NotesCompare()
-    notes_compare.start()
+    num_notes = int(input("How many notes in a question?\n"))
+    melody_trend_practice = MelodyTrend()
+    melody_trend_practice.start(num_notes=num_notes)

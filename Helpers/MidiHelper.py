@@ -1,8 +1,9 @@
+import numpy as np
 from Constants.SharedValueConstants import *
 
 class MidiHelper:
     @staticmethod
-    def to_note(midi):
+    def to_note_with_octave(midi):
         if MidiHelper.is_invalid_midi_number(midi):
             raise ValueError("invalid midi number")
 
@@ -15,3 +16,7 @@ class MidiHelper:
     @staticmethod
     def is_invalid_midi_number(midi):
         return midi is None or midi < midi_min or midi > midi_max
+
+    @staticmethod
+    def get_midi_in_range(low, high):
+        return np.random.randint(low, high + 1)
